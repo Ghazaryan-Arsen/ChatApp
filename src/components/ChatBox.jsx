@@ -3,6 +3,7 @@ import Message from "../components/Message";
 import {
   collection,
   query,
+  doc,
   onSnapshot,
   orderBy,
   limit,
@@ -11,10 +12,10 @@ import { db } from "../firebase";
 import SendMessage from "./SendMessage";
 import { UserAuth } from "../context/AuthContext";
 
-const ChatBox = () => {
+const ChatBox = ({value,setValue}) => {
   const messagesEndRef = useRef();
   const [messages, setMessages] = useState([]);
-  const [imageList, setImageList] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
   const { currentUser } = UserAuth();
 
   const [isTyping, setIsTyping] = useState(false);
@@ -39,19 +40,12 @@ const ChatBox = () => {
     });
     return unsubscribe;
   }, []);
+
   return (
     <div className="pb-44  pt-20 containerWrap">
       {messages.map((message) => (
-        <Message
-          key={message.id}
-          imageList={imageList}
-          setImageList={setImageList}
-          message={message}
-        />
+        <Message key={message.id} message={message} />
       ))}
-      {imageList.map((url) => {
-        return <img key={currentUser.uid} className="w-80" src={url} />;
-      })}
 
       {isTyping && (
         <div className="text-sm  text-gray-500 ml-2 ">
@@ -62,8 +56,7 @@ const ChatBox = () => {
         isTyping={isTyping}
         setIsTyping={setIsTyping}
         message={messages}
-        imageList={imageList}
-        setImageList={setImageList}
+        value={value} setValue={setValue}
       />
       <div ref={messagesEndRef}></div>
     </div>

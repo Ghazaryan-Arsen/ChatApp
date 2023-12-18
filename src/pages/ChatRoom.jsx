@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ChatBox from "../components/ChatBox";
 import ChatList from "../components/ChatList";
 
 const ChatRoom = () => {
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUserId, setSelectedUserId] = useState(null);
 
+  const [value, setValue] = useState("");
   return (
     <div className="flex">
-      {/* <ChatList selectedUser={selectedUser} setSelectedUser={setSelectedUser} /> */}
-      <ChatBox />
+      <ChatList
+        selectedUserId={selectedUserId}
+        setSelectedUserId={setSelectedUserId}
+      />
+      <ChatBox value={value} setValue={setValue} />
     </div>
   );
 };

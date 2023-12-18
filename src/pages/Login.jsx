@@ -2,17 +2,7 @@ import React, { useEffect } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 // import firebase from "../firebase"
-import {
-  addDoc,
-  updateDoc,
-  doc,
-  getDoc,
-  setDoc,
-  collection,
-  Timestamp,
-  serverTimestamp,
-  query,
-} from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 import { db } from "../firebase";
 import { getAuth } from "firebase/auth";
@@ -37,13 +27,13 @@ const Login = () => {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h1 className="text-5xl font-bold">Hello there</h1>
+          <h1 className="text-5xl font-bold">Hello there 👋</h1>
           <p className="py-6">Provident cupiditate voluptatem et in.</p>
           <button
             onClick={() => {
               handleLogin();
             }}
-            className="btn "
+            className="btn  bg-slate-500 text-slate-100"
           >
             Login with google
           </button>

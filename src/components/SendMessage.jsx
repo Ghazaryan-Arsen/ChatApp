@@ -16,11 +16,9 @@ import { v4 } from "uuid";
 
 import InputEmoji from "react-input-emoji";
 
-const SendMessage = ({ setIsTyping, imageList, setImageList }) => {
-  const [value, setValue] = useState("");
+const SendMessage = ({ setIsTyping, value, setValue,selectedUserId ,setSelectedUserId }) => {
   const [imageUpload, setImageUpload] = useState(null);
-
-  const { currentUser } = UserAuth();
+  const { currentUser, displayName } = UserAuth();
 
   useEffect(() => {
     const typingRef = doc(db, "typing", currentUser.uid);
@@ -62,10 +60,14 @@ const SendMessage = ({ setIsTyping, imageList, setImageList }) => {
 
       setIsTyping(typingUsers.length > 0);
     });
-
+    setDoc(doc(db, "users", currentUser.uid), {
+      displayName: currentUser.displayName,
+      email: currentUser.email,
+      uid: currentUser.uid,
+      avatar: currentUser.photoURL,
+    });
     return () => unsubscribe();
   }, [currentUser.uid]);
-
   const handleSendMessage = async (e) => {
     e.preventDefault();
 
@@ -76,7 +78,6 @@ const SendMessage = ({ setIsTyping, imageList, setImageList }) => {
 
     try {
       const { uid, displayName, photoURL } = currentUser;
-
       if (imageUpload) {
         const imageRef = ref(storage, `images/${v4()}_${imageUpload.name}`);
         await uploadBytes(imageRef, imageUpload);
@@ -84,7 +85,6 @@ const SendMessage = ({ setIsTyping, imageList, setImageList }) => {
 
         await addDoc(collection(db, "messages"), {
           text: value,
-
           image: imageUrl,
           name: displayName,
           avatar: photoURL,
@@ -124,7 +124,7 @@ const SendMessage = ({ setIsTyping, imageList, setImageList }) => {
           placeholder=""
         />
 
-        <label for="files" className="btn">
+        <label htmlFor="files" className="btn">
           <FaRegImage className="  text-xl		" />
         </label>
 

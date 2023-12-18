@@ -22,17 +22,16 @@ const Message = ({ message, imageList, setImageList }) => {
         {message.image && (
           <img
             key={message.id}
-            className="w-80 "
+            className="w-56 "
             src={message.image}
             alt="Sent"
           />
         )}
-        {message.text && <div className="chat-bubble    max-w-sm break-words">{message.text}</div>}
-       
-
-        {/* {imageList.map((url) => {
-          return <img key={currentUser.uid} className="w-80" src={url} />;
-        })} */}
+        {message.text && (
+          <div className="chat-bubble    max-w-sm break-words">
+            {message.text}
+          </div>
+        )}
       </div>
     </div>
   );

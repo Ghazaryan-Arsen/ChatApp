@@ -5,11 +5,10 @@ import {
   signInWithRedirect,
   signOut,
 } from "firebase/auth";
-import { auth } from "../firebase";
-
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
 // create context
-
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 // Provider Context
 export const AuthProvider = ({ children }) => {
@@ -43,7 +42,6 @@ export const AuthProvider = ({ children }) => {
 
     return unsubscribe;
   }, []);
-
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}
