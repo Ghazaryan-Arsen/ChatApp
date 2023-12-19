@@ -4,18 +4,42 @@ import ChatRoom from "./pages/ChatRoom";
 import Login from "./pages/Login";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
+import { useState } from "react";
+import ChatList from "./components/ChatList";
 function App() {
+  const [selectedUserId, setSelectedUserId] = useState(null);
+  // console.log(selectedUserId);
   return (
     <AuthProvider>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Login />} />
         <Route
-          path="/chat"
+          path="/"
+          element={
+            <Login
+              selectedUserId={selectedUserId}
+              setSelectedUserId={setSelectedUserId}
+            />
+          }
+        />
+        <Route
+          path={`/chat`}
+          element={
+            <ChatList
+              selectedUserId={selectedUserId}
+              setSelectedUserId={setSelectedUserId}
+            />
+          }
+        />
+        <Route
+          path={`/${selectedUserId}`}
           element={
             <PrivateRoute>
-              <ChatRoom />
+              <ChatRoom
+                selectedUserId={selectedUserId}
+                setSelectedUserId={setSelectedUserId}
+              />
             </PrivateRoute>
           }
         />

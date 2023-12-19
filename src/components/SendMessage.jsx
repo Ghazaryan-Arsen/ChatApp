@@ -9,6 +9,7 @@ import {
   onSnapshot,
   collection,
   serverTimestamp,
+  getDoc,
 } from "firebase/firestore";
 import { db, storage } from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -16,7 +17,14 @@ import { v4 } from "uuid";
 
 import InputEmoji from "react-input-emoji";
 
-const SendMessage = ({ setIsTyping, value, setValue,selectedUserId ,setSelectedUserId }) => {
+const SendMessage = ({
+  setIsTyping,
+  value,
+  setValue,
+  selectedUserId,
+  setSelectedUserId,
+  selectedUserUid,
+}) => {
   const [imageUpload, setImageUpload] = useState(null);
   const { currentUser, displayName } = UserAuth();
 
@@ -83,7 +91,7 @@ const SendMessage = ({ setIsTyping, value, setValue,selectedUserId ,setSelectedU
         await uploadBytes(imageRef, imageUpload);
         const imageUrl = await getDownloadURL(imageRef);
 
-        await addDoc(collection(db, "messages"), {
+        await addDoc(collection(db, selectedUserId), {
           text: value,
           image: imageUrl,
           name: displayName,
@@ -95,12 +103,15 @@ const SendMessage = ({ setIsTyping, value, setValue,selectedUserId ,setSelectedU
         setImageUpload(null);
         setValue("");
       } else {
-        await addDoc(collection(db, "messages"), {
+        // const messageRoomRef = doc(db, selectedUserId, "messages");
+        await addDoc(collection(db, selectedUserId), {
           text: value,
           name: displayName,
           avatar: photoURL,
           createdAt: serverTimestamp(),
           uid,
+          from: uid,
+          to: selectedUserId,
         });
 
         setValue("");

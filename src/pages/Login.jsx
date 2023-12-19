@@ -6,7 +6,7 @@ import { doc, setDoc } from "firebase/firestore";
 
 import { db } from "../firebase";
 import { getAuth } from "firebase/auth";
-const Login = () => {
+const Login = ({ selectedUserId, setSelectedUserId }) => {
   const navigate = useNavigate();
   const { currentUser, signinWithGoogle } = UserAuth();
   const handleLogin = async () => {
@@ -19,7 +19,7 @@ const Login = () => {
 
   useEffect(() => {
     if (currentUser) {
-      navigate("/chat");
+      navigate(`/chat`);
     }
   }, [currentUser]);
 

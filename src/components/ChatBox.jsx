@@ -12,7 +12,14 @@ import { db } from "../firebase";
 import SendMessage from "./SendMessage";
 import { UserAuth } from "../context/AuthContext";
 
-const ChatBox = ({value,setValue}) => {
+const ChatBox = ({
+  value,
+  setValue,
+  selectedUserId,
+  setSelectedUserId,
+  selectedUserUid,
+  chatRoomName,
+}) => {
   const messagesEndRef = useRef();
   const [messages, setMessages] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
@@ -25,9 +32,11 @@ const ChatBox = ({value,setValue}) => {
   };
 
   useEffect(scrollToBottom, [messages]);
+
   useEffect(() => {
+    // let a = collection(db, selectedUserUid);
     const q = query(
-      collection(db, "messages"),
+      collection(db, selectedUserId),
       orderBy("createdAt"),
       limit(50)
     );
@@ -56,7 +65,9 @@ const ChatBox = ({value,setValue}) => {
         isTyping={isTyping}
         setIsTyping={setIsTyping}
         message={messages}
-        value={value} setValue={setValue}
+        value={value}
+        setValue={setValue}
+        selectedUserId={selectedUserId}
       />
       <div ref={messagesEndRef}></div>
     </div>
