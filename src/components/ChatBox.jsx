@@ -51,7 +51,7 @@ const ChatBox = ({
   }, []);
 
   return (
-    <div className="pb-44  pt-20 containerWrap">
+    <div className="pb-44 pt-20 containerWrap">
       {messages.map((message) => (
         <Message key={message.id} message={message} />
       ))}

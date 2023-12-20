@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ChatBox from "../components/ChatBox";
 import ChatList from "../components/ChatList";
 
-const ChatRoom = ({ selectedUserId, setSelectedUserId }) => {
+const ChatRoom = ({ selectedUserId, setSelectedUserId, group, setGroup }) => {
   const [value, setValue] = useState("");
   const selectedUserUid = null;
   let chatRoomName = "";
@@ -15,6 +15,8 @@ const ChatRoom = ({ selectedUserId, setSelectedUserId }) => {
         setValue={setValue}
         selectedUserUid={selectedUserUid}
         chatRoomName={chatRoomName}
+        group={group}
+        setGroup={setGroup}
       />
 
       <ChatBox
@@ -24,6 +26,8 @@ const ChatRoom = ({ selectedUserId, setSelectedUserId }) => {
         setValue={setValue}
         selectedUserUid={selectedUserUid}
         chatRoomName={chatRoomName}
+        group={group} // Pass the group information to ChatBox
+        setGroup={setGroup}
       />
     </div>
   );

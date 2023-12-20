@@ -68,12 +68,12 @@ const SendMessage = ({
 
       setIsTyping(typingUsers.length > 0);
     });
-    setDoc(doc(db, "users", currentUser.uid), {
-      displayName: currentUser.displayName,
-      email: currentUser.email,
-      uid: currentUser.uid,
-      avatar: currentUser.photoURL,
-    });
+    // setDoc(doc(db, "users", currentUser.uid), {
+    //   displayName: currentUser.displayName,
+    //   email: currentUser.email,
+    //   uid: currentUser.uid,
+    //   avatar: currentUser.photoURL,
+    // });
     return () => unsubscribe();
   }, [currentUser.uid]);
   const handleSendMessage = async (e) => {
@@ -123,7 +123,7 @@ const SendMessage = ({
   };
 
   return (
-    <div className="bg-gray-400 w-full   fixed  bottom-0   py-3  shadow-lg">
+    <div className="bg-gray-400 w-full containerWrap  fixed  bottom-0   py-3  shadow-lg">
       <form onSubmit={handleSendMessage} className="px-3 mx containerWrap flex">
         <InputEmoji
           value={value}

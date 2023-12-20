@@ -3,12 +3,14 @@ import Navbar from "./components/Navbar";
 import ChatRoom from "./pages/ChatRoom";
 import Login from "./pages/Login";
 import { PrivateRoute } from "./routes/PrivateRoute";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, UserAuth } from "./context/AuthContext";
 import { useState } from "react";
 import ChatList from "./components/ChatList";
 import UserNone from "./components/UserNone";
+
 function App() {
   const [selectedUserId, setSelectedUserId] = useState(null);
+  const [group, setGroup] = useState([]);
   // console.log(selectedUserId);
   return (
     <AuthProvider>
@@ -31,6 +33,8 @@ function App() {
               <ChatList
                 selectedUserId={selectedUserId}
                 setSelectedUserId={setSelectedUserId}
+                group={group}
+                setGroup={setGroup}
               />
               <UserNone />
             </>
@@ -43,6 +47,21 @@ function App() {
               <ChatRoom
                 selectedUserId={selectedUserId}
                 setSelectedUserId={setSelectedUserId}
+                group={group}
+                setGroup={setGroup}
+              />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path={`/${group.join("-")}`}
+          element={
+            <PrivateRoute>
+              <ChatRoom
+                selectedUserId={selectedUserId}
+                setSelectedUserId={setSelectedUserId}
+                group={group}
+                setGroup={setGroup}
               />
             </PrivateRoute>
           }
