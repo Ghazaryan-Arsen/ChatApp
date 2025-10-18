@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Market - Home</title>
+    <title>3D Market - Marketplace</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,16 +24,33 @@
     </header>
 
     <main>
-        <section class="hero">
-            <h1>High-Quality 3D Models</h1>
-            <p>Discover and purchase 3D models from talented artists around the world.</p>
-            <a href="marketplace.html" class="browse-btn">Browse Models</a>
+        <section class="marketplace-header">
+            <h1>Marketplace</h1>
+            <input type="text" class="search-bar" placeholder="Search for models...">
+            <div class="filters">
+                <select>
+                    <option>Category</option>
+                    <option>Characters</option>
+                    <option>Architecture</option>
+                    <option>Vehicles</option>
+                </select>
+                <select>
+                    <option>Price</option>
+                    <option>Free</option>
+                    <option>Under $10</option>
+                    <option>$10 - $50</option>
+                </select>
+                <select>
+                    <option>Popularity</option>
+                    <option>Most Liked</option>
+                    <option>Most Viewed</option>
+                </select>
+            </div>
         </section>
 
         <section class="models-section">
-            <h2>Featured Models</h2>
             <div class="models-grid">
-                <!-- Mock data for featured models -->
+                <!-- Mock data for marketplace models -->
                 <div class="model-card">
                     <img src="https://via.placeholder.com/300x200" alt="Model 1">
                     <h3>Sci-Fi Helmet</h3>
@@ -54,13 +71,6 @@
                     <h3>Cartoon Character</h3>
                     <p>by Artist4</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="models-section">
-            <h2>Trending Models</h2>
-            <div class="models-grid">
-                <!-- Mock data for trending models -->
                 <div class="model-card">
                     <img src="https://via.placeholder.com/300x200" alt="Model 5">
                     <h3>Ancient Ruins</h3>
@@ -84,10 +94,13 @@
             </div>
         </section>
 
-        <section class="about-section" style="text-align: center; padding: 2rem;">
-            <h2>About 3DMarket</h2>
-            <p>3DMarket is the leading platform for artists to share and sell their 3D creations. We empower creators by providing them with the tools they need to succeed in the digital marketplace.</p>
-        </section>
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">...</a>
+            <a href="#">10</a>
+        </div>
     </main>
 
     <footer class="footer">

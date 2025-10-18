@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Market - Upload</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">3DMarket</div>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="marketplace.html">Marketplace</a>
+            <a href="upload.html">Upload</a>
+            <a href="profile.html">Profile</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="upload-page">
+            <h1 style="text-align: center;">Upload Your 3D Model</h1>
+            <form class="upload-form">
+                <div class="form-group">
+                    <label for="model-name">Model Name</label>
+                    <input type="text" id="model-name" name="model-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="characters">Characters</option>
+                        <option value="architecture">Architecture</option>
+                        <option value="vehicles">Vehicles</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input type="text" id="tags" name="tags" placeholder="e.g., sci-fi, helmet, futuristic">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price ($)</label>
+                    <input type="text" id="price" name="price" placeholder="e.g., 49.99">
+                </div>
+                <div class="form-group">
+                    <label for="files">Upload Files (STL, OBJ, FBX, 3DM)</label>
+                    <input type="file" id="files" name="files" multiple required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Model</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 3DMarket. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
