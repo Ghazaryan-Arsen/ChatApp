@@ -1,4 +1,4 @@
-const API_URL = 'https://d-market-backend-jules.vercel.app/api';
+const API_URL = '3d-market-gv9h6h5xl-ghazaryan-arsens-projects.vercel.app';
 
 document.addEventListener('DOMContentLoaded', () => {
     // "Browse Models" button on home page
