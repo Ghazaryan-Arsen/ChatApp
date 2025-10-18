@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Market - Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">3DMarket</div>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="marketplace.html">Marketplace</a>
+            <a href="upload.html">Upload</a>
+            <a href="profile.html">Profile</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="admin-page">
+            <h1 style="text-align: center;">Admin Dashboard</h1>
+
+            <div class="admin-stats">
+                <div class="admin-stat-card">
+                    <h3>Total Sales</h3>
+                    <p>$123,456</p>
+                </div>
+                <div class="admin-stat-card">
+                    <h3>Platform Income (20%)</h3>
+                    <p>$24,691</p>
+                </div>
+                <div class="admin-stat-card">
+                    <h3>Total Users</h3>
+                    <p>1,234</p>
+                </div>
+                <div class="admin-stat-card">
+                    <h3>Uploaded Models</h3>
+                    <p>5,678</p>
+                </div>
+            </div>
+
+            <section class="admin-section">
+                <h2>Manage Users</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Artist1</td>
+                            <td>artist1@example.com</td>
+                            <td class="actions"><a href="#">Edit</a> <a href="#">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Artist2</td>
+                            <td>artist2@example.com</td>
+                            <td class="actions"><a href="#">Edit</a> <a href="#">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="admin-section" style="margin-top: 2rem;">
+                <h2>Manage Models</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Model ID</th>
+                            <th>Model Name</th>
+                            <th>Uploader</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>Sci-Fi Helmet</td>
+                            <td>Artist1</td>
+                            <td>$49.99</td>
+                            <td class="actions"><a href="#">View</a> <a href="#">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>Fantasy Sword</td>
+                            <td>Artist2</td>
+                            <td>$39.99</td>
+                            <td class="actions"><a href="#">View</a> <a href="#">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 3DMarket. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
