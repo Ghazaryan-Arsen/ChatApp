@@ -18,8 +18,8 @@
             <a href="admin.html">Admin</a>
         </nav>
         <div class="auth-buttons">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="#" id="login-btn">Login</a>
+            <a href="#" id="register-btn">Register</a>
         </div>
     </header>
 
@@ -30,19 +30,19 @@
             <div class="admin-stats">
                 <div class="admin-stat-card">
                     <h3>Total Sales</h3>
-                    <p>$123,456</p>
+                    <p id="total-sales"></p>
                 </div>
                 <div class="admin-stat-card">
                     <h3>Platform Income (20%)</h3>
-                    <p>$24,691</p>
+                    <p id="platform-income"></p>
                 </div>
                 <div class="admin-stat-card">
                     <h3>Total Users</h3>
-                    <p>1,234</p>
+                    <p id="total-users"></p>
                 </div>
                 <div class="admin-stat-card">
                     <h3>Uploaded Models</h3>
-                    <p>5,678</p>
+                    <p id="total-models"></p>
                 </div>
             </div>
 
@@ -57,19 +57,8 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Artist1</td>
-                            <td>artist1@example.com</td>
-                            <td class="actions"><a href="#">Edit</a> <a href="#">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Artist2</td>
-                            <td>artist2@example.com</td>
-                            <td class="actions"><a href="#">Edit</a> <a href="#">Delete</a></td>
-                        </tr>
+                    <tbody id="users-table-body">
+                        <!-- User data will be dynamically inserted here -->
                     </tbody>
                 </table>
             </section>
@@ -86,31 +75,61 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>101</td>
-                            <td>Sci-Fi Helmet</td>
-                            <td>Artist1</td>
-                            <td>$49.99</td>
-                            <td class="actions"><a href="#">View</a> <a href="#">Delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>102</td>
-                            <td>Fantasy Sword</td>
-                            <td>Artist2</td>
-                            <td>$39.99</td>
-                            <td class="actions"><a href="#">View</a> <a href="#">Delete</a></td>
-                        </tr>
+                    <tbody id="models-table-body">
+                       <!-- Model data will be dynamically inserted here -->
                     </tbody>
                 </table>
             </section>
         </div>
     </main>
 
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form" class="upload-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Register</h2>
+            <form id="register-form" class="upload-form">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
     <footer class="footer">
         <p>&copy; 2024 3DMarket. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

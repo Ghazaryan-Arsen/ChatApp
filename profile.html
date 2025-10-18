@@ -18,8 +18,8 @@
             <a href="admin.html">Admin</a>
         </nav>
         <div class="auth-buttons">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="#" id="login-btn">Login</a>
+            <a href="#" id="register-btn">Register</a>
         </div>
     </header>
 
@@ -28,23 +28,23 @@
             <div class="profile-header">
                 <img src="https://via.placeholder.com/150" alt="User Avatar" class="profile-avatar">
                 <div class="profile-info">
-                    <h1>Artist1</h1>
-                    <p>3D Artist from Planet Earth</p>
+                    <h1></h1>
+                    <p></p>
                 </div>
             </div>
 
             <div class="profile-stats">
                 <div class="stat">
                     <h3>Total Sales</h3>
-                    <p>123</p>
+                    <p></p>
                 </div>
                 <div class="stat">
                     <h3>Total Earnings</h3>
-                    <p>$5,432.10</p>
+                    <p></p>
                 </div>
                 <div class="stat">
                     <h3>Uploaded Models</h3>
-                    <p>8</p>
+                    <p></p>
                 </div>
                 <button class="withdraw-btn" style="margin-left: auto; align-self: center;">Withdraw</button>
             </div>
@@ -52,31 +52,59 @@
             <section class="models-section">
                 <h2>My Uploaded Models</h2>
                 <div class="models-grid">
-                    <!-- Mock data for uploaded models -->
-                    <div class="model-card">
-                        <img src="https://via.placeholder.com/300x200" alt="Model 1">
-                        <h3>Sci-Fi Helmet</h3>
-                        <p>$49.99</p>
-                    </div>
-                    <div class="model-card">
-                        <img src="https://via.placeholder.com/300x200" alt="Model 5">
-                        <h3>Ancient Ruins</h3>
-                        <p>$29.99</p>
-                    </div>
-                    <div class="model-card">
-                        <img src="https://via.placeholder.com/300x200" alt="Model 8">
-                        <h3>Robot Arm</h3>
-                        <p>$19.99</p>
-                    </div>
+                    <!-- User's models will be dynamically inserted here -->
                 </div>
             </section>
         </div>
     </main>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form" class="upload-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Register</h2>
+            <form id="register-form" class="upload-form">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2024 3DMarket. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

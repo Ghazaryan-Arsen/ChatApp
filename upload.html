@@ -18,15 +18,15 @@
             <a href="admin.html">Admin</a>
         </nav>
         <div class="auth-buttons">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="#" id="login-btn">Login</a>
+            <a href="#" id="register-btn">Register</a>
         </div>
     </header>
 
     <main>
         <div class="upload-page">
             <h1 style="text-align: center;">Upload Your 3D Model</h1>
-            <form class="upload-form">
+            <form id="upload-form" class="upload-form">
                 <div class="form-group">
                     <label for="model-name">Model Name</label>
                     <input type="text" id="model-name" name="model-name" required>
@@ -62,10 +62,53 @@
         </div>
     </main>
 
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form" class="upload-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Register</h2>
+            <form id="register-form" class="upload-form">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
     <footer class="footer">
         <p>&copy; 2024 3DMarket. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
